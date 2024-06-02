@@ -3,13 +3,12 @@ import TagsCategorias from "../../componentes/TagsCategorias"
 import Newsletter from "../../componentes/Newsletter"
 
 import './styles/AreaLogada.css'
+import TituloPrincipal from "../../componentes/TituloPrincipal"
 
 const AreaLogada = () => {
     return (
         <section className="area-logada__container">
-            <div className="area-logada__container--banner">
-                <h3>Minha Conta</h3>
-            </div>
+            <TituloPrincipal titulo="Minha Conta"/>
             
             <div className="area-logada__container--wrapper">
                 <ul>
