@@ -13,3 +13,7 @@
     margin-top: 48px;
     text-align: center;
 }
+
+.corpoModalCadastro form  input::placeholder {
+    color: rgba(164, 164, 164, 1);
+}

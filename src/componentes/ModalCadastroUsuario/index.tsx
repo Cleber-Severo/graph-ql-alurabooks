@@ -4,8 +4,14 @@ import { useState } from "react"
 import imagemPrincipal from './assets/login.png'
 
 import './ModalCadastroUsuario.css'
+import { http } from "../../http"
 
-const ModalCadastroUsuario = () => {
+interface ModalCadastroUsuarioProps {
+    isOpen: boolean
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const ModalCadastroUsuario = ({ isOpen, setIsOpen }: ModalCadastroUsuarioProps) => {
 
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
@@ -25,14 +31,30 @@ const ModalCadastroUsuario = () => {
             cep,
             complemento
         }
-        console.log(usuario)
-        alert('Usuário foi cadastrado com sucesso!')
+
+        http.post('public/registrar', usuario)
+            .then(() => {
+                alert('Usuário foi cadastrado com sucesso!')
+
+                setNome('')
+                setEmail('')
+                setEndereco('')
+                setComplemento('')
+                setCep('')
+                setSenha('')
+                setSenhaConfirmada('')
+
+                setIsOpen(false)
+            })
+            .catch(() => {
+                alert('Something went wrong!')
+            })
     }
 
     return (<AbModal 
-        titulo="Cadastrar" 
-        aberta={true}
-        aoFechar={() => console.log('fecha ai')}    
+        titulo="CADASTRO" 
+        aberta={isOpen}
+        aoFechar={() => { setIsOpen(!isOpen) }}    
     >
         <section className="corpoModalCadastro">
             <figure>
@@ -41,27 +63,32 @@ const ModalCadastroUsuario = () => {
             <form onSubmit={aoSubmeterFormular}>
                 <AbCampoTexto 
                     label="Nome"
+                    placeholder="Seu nome completo"
                     value={nome}
                     onChange={setNome}
                 />
                 <AbCampoTexto 
                     label="E-mail"
+                    placeholder="seuemail@maneiro.com.br"
                     value={email}
                     onChange={setEmail}
                     type="email"
                 />
                 <AbCampoTexto 
                     label="Endereço"
+                    placeholder="Sua rua e número"
                     value={endereco}
                     onChange={setEndereco}
                 />
                 <AbCampoTexto 
                     label="Complemento"
+                    placeholder="Apto/casa, bloco, referência"
                     value={complemento}
                     onChange={setComplemento}
                 />
                 <AbCampoTexto 
                     label="CEP"
+                    placeholder="Apto/casa e bloco"
                     value={cep}
                     onChange={setCep}
                 />

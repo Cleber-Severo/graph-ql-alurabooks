@@ -1,0 +1,48 @@
+.area-logada__container--banner {
+    background: linear-gradient(97.54deg, #002F52 35.49%, #326589 165.37%);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+    height: 120px;
+    
+}
+
+.area-logada__container--banner h3 {
+    color: white;
+}
+
+.area-logada__container--wrapper {
+    display: flex;
+    align-items: center;
+    
+    min-height: 500px;
+    padding: 0 121px;
+}
+
+.area-logada__container--wrapper >  ul {
+    width: 160px;
+}
+
+.area-logada__container--wrapper >  ul li {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    font-family: sans-serif;
+
+    color: rgba(50, 101, 137, 1);
+    border-bottom: 1px solid rgba(196, 196, 196, 1);
+
+    text-align: center;
+}
+
+.area-logada__container--wrapper >  ul li.selected {
+    font-weight: 700;
+    border-color: rgba(14, 62, 97, 1);
+}
+
+.area-logada__container--conteudo {
+    width: 85%;
+}
