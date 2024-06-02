@@ -4,15 +4,19 @@ import ModalCadastroUsuario from "../ModalCadastroUsuario"
 import logo from './assets/logo.png'
 import usuario from './assets/usuario.svg'
 import './BarraNavegacao.css'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ModalLoginUsuario from "../ModalLoginUsuario"
 import { useObterToken } from "../../hooks/useToken"
+import { ICategoria } from "../../interfaces/ICategoria"
+import { http } from "../../http"
 
 const BarraNavegacao = () => {
 
 
     const [modalCadastro, setModalCadstro] = useState<boolean>(false)
     const [modalLogin, setModalLogin] = useState<boolean>(false)
+
+    const [categorias, setCategorias] = useState<ICategoria[]>([])
 
     let navigate = useNavigate()
 
@@ -25,6 +29,13 @@ const BarraNavegacao = () => {
         sessionStorage.removeItem('token')
         navigate('/')
     }
+
+    useEffect(() => {
+        http.get<ICategoria[]>('categorias')
+            .then(res => {
+                setCategorias(res.data);
+            })
+    }, [])
 
     return (<nav className="ab-navbar">
         <h1 className="logo">
