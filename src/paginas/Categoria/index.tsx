@@ -3,6 +3,7 @@ import TituloPrincipal from "../../componentes/TituloPrincipal"
 import { ICategoria } from "../../interfaces/ICategoria"
 import { http } from "../../http"
 import { useParams } from "react-router-dom"
+import Loader from "../../componentes/Loader"
 
 const Categoria = () => {
   const [categoria, setCategoria] = useState<ICategoria>()
@@ -17,6 +18,7 @@ const Categoria = () => {
   return(
     <section>
       <TituloPrincipal titulo={categoria?.nome ?? ''} />
+      <Loader />
     </section>
   )
 }
