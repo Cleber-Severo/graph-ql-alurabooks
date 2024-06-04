@@ -7,18 +7,26 @@ import Loader from "../../componentes/Loader"
 
 const Categoria = () => {
   const [categoria, setCategoria] = useState<ICategoria>()
+  const [ estaCarregando, setEstaCarregando  ] = useState(false)
   
   const params = useParams()
 
   useEffect(() => {
+    setEstaCarregando(true)
     http.get('categorias', { params: { slug: params.slug } })
-      .then(res => { setCategoria(res.data[0]) })
+      .then(res => { 
+        setCategoria(res.data[0]) 
+        setEstaCarregando(false)
+      })
   }, [params.slug])
+
+  if(estaCarregando) {
+    return (<Loader />)
+  }
 
   return(
     <section>
       <TituloPrincipal titulo={categoria?.nome ?? ''} />
-      <Loader />
     </section>
   )
 }
