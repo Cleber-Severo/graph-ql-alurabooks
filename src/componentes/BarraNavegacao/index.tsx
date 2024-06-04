@@ -49,7 +49,7 @@ const BarraNavegacao = () => {
                 <ul className="submenu">
                    { !!categorias.length && categorias.map(categoria => (
                     <li key={categoria.id}>
-                        <Link to={`/categoria/${categoria.slug}`}>
+                        <Link to={`/categorias/${categoria.slug}`}>
                             {categoria.nome}    
                         </Link>
                     </li>
