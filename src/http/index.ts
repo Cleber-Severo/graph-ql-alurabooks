@@ -1,6 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { useObterToken } from "../hooks/useToken";
 import { ICategoria } from "../interfaces/ICategoria";
+import { ILivro } from "../interfaces/ILivro";
 
 
 export const http = axios.create({
@@ -43,4 +44,9 @@ export const obterCategoriaPorSlug = async (slug: string) => {
   const resposta = await http.get<ICategoria[]>('categorias', { params: { slug: slug } })
   
   return resposta.data[0]
+}
+
+export const obterLivrosDestaque = async (tipo: string) => {
+  const resposta = await http.get<ILivro[]>(`public/${tipo}`)
+  return resposta.data
 }
