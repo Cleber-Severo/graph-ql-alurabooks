@@ -37,3 +37,7 @@
 .card-livro__descr span:last-child {
     margin-bottom: 16px;
 }
+
+.card-livro button {
+    width: 100%;
+}
