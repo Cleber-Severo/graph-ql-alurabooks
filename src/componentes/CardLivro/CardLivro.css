@@ -1,0 +1,39 @@
+.card-livro,
+.card-livro__descr {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.card-livro {
+    margin-bottom: 30px;
+}
+
+.card-livro__descr {
+    align-items: center;
+}
+
+.card-livro img {
+    box-shadow: 2px 4px 8px 0px #00000026;
+
+    height: 344px;
+    width: 245px;
+}
+
+.card-livro h4 {
+    font-size: 18ox;
+    font-weight: 700;
+    font-family: sans-serif;
+    color: #002F52;
+
+    margin: 8px 0;
+}
+
+.card-livro__descr span {
+    color: #002F52;
+    font-size: 24px;
+}
+
+.card-livro__descr span:last-child {
+    margin-bottom: 16px;
+}

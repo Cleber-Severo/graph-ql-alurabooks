@@ -1,0 +1,14 @@
+section.container-produtos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+
+    padding: 104px 345px;
+}
+
+@media screen and (max-width: 1400px) {
+    section.container-produtos {    
+        padding: 104px 145px;
+    }
+}
