@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { formatador } from '../LivrosDestaque/utils/formatador'
 import { obterAutorPorId } from '../../http'
 import { useQuery } from '@tanstack/react-query'
+import ArtigoTexto from '../ArtigoTexto'
 
 interface DescricaoLivroProps {
     livro: ILivro
@@ -25,7 +26,7 @@ const DescricaoLivro = ({ livro }: DescricaoLivroProps) => {
     titulo: opcao.titulo,
     rodape: opcao.formatos ? opcao.formatos.join(',') : ''
   }))
-    : []
+    : []  
 
   return(
     <section className='livro-descricao-container'>
@@ -50,15 +51,19 @@ const DescricaoLivro = ({ livro }: DescricaoLivroProps) => {
             <span>*Você terá acesso às futuras atualizações do livro.</span>
           </div>
           
-          <div>
-            QUANTIDADE
-            <div className="qtdContainer">
+          <div className='qtd-container'>
+            <div>
               <AbInputQuantidade onChange={setQuantidade} value={quantidade} />
             </div>
-            <AbBotao texto='Comprar'/>
+            <div className='btn-comprar'>
+            <AbBotao texto='Comprar' />
+            </div>
           </div>
         </div>
       </article>
+
+      <ArtigoTexto titulo='Sobre o Autor' texto={autor?.sobre} />
+      <ArtigoTexto titulo='Sobre o Livro' texto={livro?.sobre} />
     </section>
   )
 }

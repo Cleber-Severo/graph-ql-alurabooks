@@ -1,0 +1,16 @@
+.artigo-texto h4 {
+    font-size: 24px;
+    color: #002F52;
+
+    border-bottom: 1px solid #EB9B00;
+
+    width: 20%;
+
+    padding-bottom: 10px;
+}
+
+.artigo-texto p {
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 16px;
+    font-family: sans-serif;
+}

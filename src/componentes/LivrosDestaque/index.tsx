@@ -4,6 +4,7 @@ import { ILivro } from "../../interfaces/ILivro"
 
 import './LivrosDestaque.css'
 import { formatador } from "./utils/formatador"
+import { Link } from "react-router-dom"
 
 interface LivrosDestaqueProps {
     livros: ILivro[]
@@ -51,8 +52,10 @@ const LivrosDestaque = ({ livros }: LivrosDestaqueProps) => {
                         <em>A partir de:</em>
                         <strong>{formatador.format(valorMinimo)}</strong>
                     </div>
-                    <div>
-                        <AbBotao texto="Comprar" />
+                   <div>
+                        <Link to={`/detalhes/${selecionado?.slug}`} style={{ width: '100%' }}>
+                            <AbBotao texto="Comprar" />
+                        </Link>
                     </div>
                 </footer>
             </div>
